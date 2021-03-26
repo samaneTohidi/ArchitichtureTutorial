@@ -1,4 +1,4 @@
-package com.example.architichturetutorial
+package com.example.architichturetutorial.Prototype
 
 class ShapeCloneMaker {
 
