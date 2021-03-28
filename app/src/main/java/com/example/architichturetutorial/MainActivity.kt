@@ -6,6 +6,9 @@ import com.example.architichturetutorial.Adapter.AudioPlayer
 import com.example.architichturetutorial.Adapter.MediaPlayer
 import com.example.architichturetutorial.Adapter.SoundAdapter
 import com.example.architichturetutorial.Builder.Shape
+import com.example.architichturetutorial.Flyweight.OSSharedVars.getOS
+import com.example.architichturetutorial.Flyweight.OSType
+import com.example.architichturetutorial.ObjectPool.Computer
 import com.example.architichturetutorial.ObjectPool.ComputerObjectPool
 import com.example.architichturetutorial.Prototype.ShapeCloneMaker
 
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         useObjectPool()
         useAdapter()
         useBuilder()
+        useFlyweight()
     }
 
     fun usePrototype() {
@@ -54,5 +58,16 @@ class MainActivity : AppCompatActivity() {
      fun useBuilder() {
               var shape: Shape = Shape.ShapeBuilder(11f, 22f).build()
          }
+
+    fun useFlyweight(){
+
+            val listOfComputers : MutableList<Computer> = ArrayList()
+            for (ram in 1024..2048){
+                listOfComputers.add(Computer(getOS(OSType.WIN),ram))
+                listOfComputers.add(Computer(getOS(OSType.LIN),ram))
+                listOfComputers.add(Computer(getOS(OSType.MAC),ram))
+            }
+
+    }
 }
 
