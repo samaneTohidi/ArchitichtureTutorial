@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.architichturetutorial.Adapter.AudioPlayer
 import com.example.architichturetutorial.Adapter.MediaPlayer
 import com.example.architichturetutorial.Adapter.SoundAdapter
+import com.example.architichturetutorial.Builder.Shape
 import com.example.architichturetutorial.ObjectPool.ComputerObjectPool
 import com.example.architichturetutorial.Prototype.ShapeCloneMaker
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         usePrototype()
         useObjectPool()
         useAdapter()
+        useBuilder()
     }
 
     fun usePrototype() {
@@ -48,5 +50,9 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer_2.play("vlc","Pulp Fiction")
 
     }
+
+     fun useBuilder() {
+              var shape: Shape = Shape.ShapeBuilder(11f, 22f).build()
+         }
 }
 
