@@ -20,6 +20,8 @@ import com.example.architichturetutorial.Strategy.RemoveZerosStrategy
 import com.example.architichturetutorial.Strategy.SortAscendStrategy
 import com.example.architichturetutorial.Strategy.SortDescendStrategy
 import com.example.architichturetutorial.Strategy.contextStrategy
+import com.example.architichturetutorial.Template.House
+import com.example.architichturetutorial.Template.Type1House
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         useComposite()
         useStrategy()
         useFactory()
+        useAbstractFactory()
+        useTemplate()
 
 
 
@@ -152,6 +156,12 @@ class MainActivity : AppCompatActivity() {
 
      }
 
+    fun useTemplate(){
+
+        val houseType1: House = Type1House()
+        houseType1.buildHouse()
+
+    }
 
 }
 
