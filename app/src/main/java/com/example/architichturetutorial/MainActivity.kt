@@ -1,6 +1,5 @@
 package com.example.architichturetutorial
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.architichturetutorial.Adapter.AudioPlayer
@@ -8,8 +7,9 @@ import com.example.architichturetutorial.Adapter.MediaPlayer
 import com.example.architichturetutorial.Adapter.SoundAdapter
 import com.example.architichturetutorial.Builder.Shape
 import com.example.architichturetutorial.Composite.Professor
-import com.example.architichturetutorial.Composite.University
 import com.example.architichturetutorial.Composite.Student
+import com.example.architichturetutorial.Composite.University
+import com.example.architichturetutorial.Factory.VehicleFactory
 import com.example.architichturetutorial.Flyweight.OSSharedVars.getOS
 import com.example.architichturetutorial.Flyweight.OSType
 import com.example.architichturetutorial.ObjectPool.Computer
@@ -19,6 +19,7 @@ import com.example.architichturetutorial.Strategy.RemoveZerosStrategy
 import com.example.architichturetutorial.Strategy.SortAscendStrategy
 import com.example.architichturetutorial.Strategy.SortDescendStrategy
 import com.example.architichturetutorial.Strategy.contextStrategy
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         useFlyweight()
         useComposite()
         useStrategy()
+        useFactory()
 
 
 
@@ -113,18 +115,28 @@ class MainActivity : AppCompatActivity() {
         list.add(4)
         list.add(5)
 
-        var contextStrategy = contextStrategy(SortAscendStrategy(),list)
+        var contextStrategy = contextStrategy(SortAscendStrategy(), list)
         val list1 = contextStrategy.doStrategy()
         println("ali$list1")
 
-        contextStrategy = contextStrategy(SortDescendStrategy(),list)
+        contextStrategy = contextStrategy(SortDescendStrategy(), list)
         val list2 = contextStrategy.doStrategy()
         println("ali$list2")
 
-        contextStrategy = contextStrategy(RemoveZerosStrategy(),list)
+        contextStrategy = contextStrategy(RemoveZerosStrategy(), list)
         var list3 = contextStrategy.doStrategy()
         print("ali$list3")
 
     }
+
+   fun useFactory(){
+
+       val vehicleFactory = VehicleFactory()
+       val car = vehicleFactory.createVehicle("Car")
+       car!!.showVehicleType()
+
+       val motorCycle = vehicleFactory.createVehicle("MotorCycle")
+       motorCycle!!.showVehicleType()
+   }
 }
 
