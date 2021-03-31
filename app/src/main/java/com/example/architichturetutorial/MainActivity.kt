@@ -2,6 +2,7 @@ package com.example.architichturetutorial
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.example.architichturetutorial.AbstractFactory.FactoryProducer
 import com.example.architichturetutorial.Adapter.AudioPlayer
 import com.example.architichturetutorial.Adapter.MediaPlayer
 import com.example.architichturetutorial.Adapter.SoundAdapter
@@ -138,5 +139,19 @@ class MainActivity : AppCompatActivity() {
        val motorCycle = vehicleFactory.createVehicle("MotorCycle")
        motorCycle!!.showVehicleType()
    }
+
+
+     fun useAbstractFactory(){
+         val vehicleFactory = FactoryProducer().getMachineFactory()
+         val car = vehicleFactory
+         car.getVehicle("Car")
+         val motorCycle = vehicleFactory.getVehicle("MotorCycle")
+         val colorFactory = FactoryProducer().getColorFactory()
+         colorFactory.getColor("RED")?.fill()
+         colorFactory.getColor("BLUE")?.fill()
+
+     }
+
+
 }
 
