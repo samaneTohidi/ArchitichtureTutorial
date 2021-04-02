@@ -15,6 +15,10 @@ import com.example.architichturetutorial.Flyweight.OSSharedVars.getOS
 import com.example.architichturetutorial.Flyweight.OSType
 import com.example.architichturetutorial.ObjectPool.Computer
 import com.example.architichturetutorial.ObjectPool.ComputerObjectPool
+import com.example.architichturetutorial.Observer.BinObserver
+import com.example.architichturetutorial.Observer.HexObserver
+import com.example.architichturetutorial.Observer.OctObserver
+import com.example.architichturetutorial.Observer.Subject
 import com.example.architichturetutorial.Prototype.ShapeCloneMaker
 import com.example.architichturetutorial.Strategy.RemoveZerosStrategy
 import com.example.architichturetutorial.Strategy.SortAscendStrategy
@@ -22,6 +26,8 @@ import com.example.architichturetutorial.Strategy.SortDescendStrategy
 import com.example.architichturetutorial.Strategy.contextStrategy
 import com.example.architichturetutorial.Template.House
 import com.example.architichturetutorial.Template.Type1House
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         useFactory()
         useAbstractFactory()
         useTemplate()
+        useObserver()
 
 
 
@@ -160,6 +167,21 @@ class MainActivity : AppCompatActivity() {
 
         val houseType1: House = Type1House()
         houseType1.buildHouse()
+
+    }
+
+
+    fun useObserver(){
+
+        val sub = Subject()
+        HexObserver(sub)
+        OctObserver(sub)
+        BinObserver(sub)
+        val scan = Scanner(System.`in`)
+        for (i in 0..4) {
+            print("\nEnter a number: ")
+            sub.setState(scan.nextInt())
+        }
 
     }
 
