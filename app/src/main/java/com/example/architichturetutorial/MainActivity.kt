@@ -10,6 +10,7 @@ import com.example.architichturetutorial.Builder.Shape
 import com.example.architichturetutorial.Composite.Professor
 import com.example.architichturetutorial.Composite.Student
 import com.example.architichturetutorial.Composite.University
+import com.example.architichturetutorial.Facade.FacadeMusicPlayer
 import com.example.architichturetutorial.Factory.VehicleFactory
 import com.example.architichturetutorial.Flyweight.OSSharedVars.getOS
 import com.example.architichturetutorial.Flyweight.OSType
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         useAbstractFactory()
         useTemplate()
         useObserver()
+        useFacade()
 
 
 
@@ -184,6 +186,12 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+   fun useFacade(){
+       val facadeMusicPlayer = FacadeMusicPlayer()
+       facadeMusicPlayer.turnOnSystem()
+       facadeMusicPlayer.playSong("Ich Will - Rammstein")
+
+   }
 
 }
 
