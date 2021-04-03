@@ -7,6 +7,7 @@ import com.example.architichturetutorial.Adapter.AudioPlayer
 import com.example.architichturetutorial.Adapter.MediaPlayer
 import com.example.architichturetutorial.Adapter.SoundAdapter
 import com.example.architichturetutorial.Builder.Shape
+import com.example.architichturetutorial.Command.*
 import com.example.architichturetutorial.Composite.Professor
 import com.example.architichturetutorial.Composite.Student
 import com.example.architichturetutorial.Composite.University
@@ -48,8 +49,18 @@ class MainActivity : AppCompatActivity() {
         useTemplate()
         useObserver()
         useFacade()
+        useCammand()
+        useFoodRestaurant()
 
 
+
+    }
+
+     fun useFoodRestaurant() {
+         val resturant = FastFood()
+         val pizza = Pizaa(resturant)
+         val invoker = Invoker(pizza)
+         invoker.waiter()
 
     }
 
@@ -192,6 +203,17 @@ class MainActivity : AppCompatActivity() {
        facadeMusicPlayer.playSong("Ich Will - Rammstein")
 
    }
+
+    fun useCammand(){
+
+        val control = RemoteControl()
+        val light = Light()
+
+        control.pressButton(LightWhiteCommand(light))
+        control.pressButton(LightRedCommand(light))
+        control.pressButton(LightBlueCommand(light))
+        control.undoButton()
+    }
 
 }
 
